@@ -168,63 +168,6 @@ def criar_populacao_inicial(tamanho_populacao, numero_clientes, numero_veiculos)
     return populacao
 
 
-# def executar_algoritmo_genetico():
-#     # Gerar ou carregar os dados dos clientes
-#     clientes_coordenadas, clientes_demandas = gerar_coordenadas_demandas_clientes()
-    
-#     # Coordenadas completas (depósito + clientes)
-#     deposito_coordenadas = np.array([[0, 0]])  # Coordenadas do depósito
-#     todas_coordenadas = np.vstack([deposito_coordenadas, clientes_coordenadas])
-    
-#     # Matriz de distâncias
-#     matriz_distancias = cdist(todas_coordenadas, todas_coordenadas)
-    
-#     # Parâmetros do AG
-#     tamanho_populacao = TAMANHO_POPULACAO
-#     numero_geracoes = NUMERO_GERACOES
-#     taxa_mutacao = TAXA_MUTACAO_BASE
-#     tamanho_elite = TAXA_ELITISMO
-    
-#     # Criar população inicial
-#     populacao = criar_populacao_inicial(tamanho_populacao, numero_clientes, numero_veiculos)
-    
-#     melhor_individuo = None
-#     melhor_fitness = float('inf')
-#     historico_fitness = []
-    
-#     for geracao in range(numero_geracoes):
-#         # Calcular fitnesses
-#         fitnesses = []
-#         for individuo in populacao:
-#             fitness = calcular_fitness(individuo, matriz_distancias, clientes_demandas, capacidade_veiculo)
-#             fitnesses.append(fitness)
-#             if fitness < melhor_fitness:
-#                 melhor_fitness = fitness
-#                 melhor_individuo = individuo
-    
-#         historico_fitness.append(melhor_fitness)
-    
-#         # Elitismo
-#         populacao_ordenada = [x for _, x in sorted(zip(fitnesses, populacao), key=lambda pair: pair[0])]
-#         elite_individuos = populacao_ordenada[:tamanho_elite]
-    
-#         # Gerar nova população
-#         nova_populacao = elite_individuos.copy()  # Preservar elite
-#         num_descendentes = tamanho_populacao - tamanho_elite
-    
-#         for _ in range(num_descendentes):
-#             pai1 = selecao(populacao, fitnesses)
-#             pai2 = selecao(populacao, fitnesses)
-#             filho = crossover_avancado(pai1, pai2, clientes_demandas, capacidade_veiculo, TAXA_CROSSOVER)
-#             filho = mutacao_inversao(filho, taxa_mutacao)
-#             nova_populacao.append(filho)
-    
-#         populacao = nova_populacao
-    
-#         if (geracao + 1) % 50 == 0 or geracao == 0:
-#             print(f"Geração {geracao + 1}: Melhor Fitness = {melhor_fitness:.2f}")
-    
-#     return melhor_individuo, melhor_fitness, historico_fitness, clientes_coordenadas, clientes_demandas, matriz_distancias
 def executar_algoritmo_genetico():
     # Gerar ou carregar os dados dos clientes
     clientes_coordenadas, clientes_demandas = gerar_coordenadas_demandas_clientes()
